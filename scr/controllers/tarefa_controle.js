@@ -44,6 +44,9 @@ const deletarTarefa = (req, res) => {
 
 const alterarTarefas = (req, res) => {
     const tarefas = modelo.alterarTarefas(req.body);
+    if (!tarefas){
+        res.status(400).json({erro: "ID não encontrado"})
+    }
     res.status(201).json(tarefas);
 }
 
