@@ -13,7 +13,7 @@ const mostrarTarefas = (req,res) => {
 const buscarId = (req, res) =>{
     const id = parseInt(req.query.id); // parseInt -> Converte str em int; query -> get /?id=
     const tarefa = modelo.buscarId(id);
-    if (!id) { 
+    if (!tarefa) { 
         res.status(400).json({erro: "tarefa não encontrada"})
     }
     res.json(tarefa)
@@ -37,9 +37,9 @@ const criarTarefa = (req,res) => {
 const deletarTarefa = (req, res) => {
     const tarefa = modelo.deletarTarefa(req.body.id)
     if (!tarefa){
-        res.status(400).json({erro: "Tarefa não encontrada"})
+        res.status(400).json({erro: "ID não encontrado"})
     }
-    res.status(204);
+    res.status(204).send() //Envia um sinal de concluido e uma resposta vazia (recarregar);
 }
 
 const alterarTarefas = (req, res) => {
