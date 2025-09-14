@@ -34,7 +34,7 @@ const alterarTarefas = (dados) => {
     for(var i = 0; i < tarefas.length; i++){
         if (tarefas[i].id == dados.id){
             tarefas[i].nome = dados.nome;
-            tarefas[i].feito = dados.feito;
+            tarefas[i].feito = !!parseInt(dados.feito);
             break;
         }
     }
