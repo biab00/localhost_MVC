@@ -35,10 +35,9 @@ const alterarTarefas = (dados) => {
         if (tarefas[i].id == dados.id){
             tarefas[i].nome = dados.nome;
             tarefas[i].feito = !!parseInt(dados.feito);
-            break;
+            return tarefas;
         }
     }
-    return tarefas;
 };
 
 const deletarTarefa = (id) =>{
